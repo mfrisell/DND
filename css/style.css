@@ -207,10 +207,33 @@ z-index:9999;
 #openMenu {
 width:30px;
 height:30px;
-margin:10px;
-border-radius:30px;
-border:2px solid rgba(0,0,0,.8);
-box-sizing:border-box;
+margin:10px 0 0 12px;
+background-color:transparent;
+float:left;
+}
+
+.openMenu {
+width:30px;
+height:30px;
+color:rgba(0,0,0,.7);
+font-size:30px;
+line-height:30px;
+}
+
+#openTemp {
+width:30px;
+height:30px;
+margin:10px 4px 0 0;
+background-color:transparent;
+float:right;
+}
+
+.openTemp {
+width:30px;
+height:30px;
+color:rgba(0,0,0,.7);
+font-size:30px;
+line-height:30px;
 }
 
 #bottomMenu {
@@ -221,7 +244,6 @@ left:0px;
 bottom:0px;
 display:block;
 z-index:9999;
-
 }
 
 #bottomMenuTop {
@@ -237,14 +259,20 @@ pointer-events:none;
 #bottomMenuTopTriangle {
 width: 0;
 height: 0;
-border-bottom: 50px solid #f47482;
+border-bottom: 50px solid #2E4057;
 border-right: 100vw solid transparent;
 }
 
 #bottomMenuBottom {
 width:100%;
 height:50px;
-background-color:#f47482;
+background-color:#2E4057;
+}
+
+.mainTempSlide {
+height:75px;
+padding-top:50px;
+background-color:red;
 }
 
 .mainFirstSlide {
@@ -258,28 +286,18 @@ height:300px;
 position:relative;
 }
 
-#mainSecondButton {
-width:100px;
-height:100px;
-position:absolute;
-right:-50px;
-top:-25px;
-background-color:#f7b298;
-border-radius:100px;
-}
-
 #secondSlideTop {
-margin-top:5px;
+margin-top:-10px;
 width: 0;
 height: 0;
-border-bottom: 25px solid #f7b298;
+border-bottom: 25px solid #375d7d;
 border-right: 100vw solid transparent;
 }
 
 #secondSlideRest {
 width:100%;
-height:270px;
-background-color:#f7b298;
+height:285px;
+background-color:#375d7d;
 }
 
 

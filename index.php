@@ -8,6 +8,7 @@
 <title>Knukk Lee</title>
 <link rel="stylesheet" href="dist/css/swiper.css">
 <link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="ionicons/css/ionicons.css">
 <script type='application/javascript' src='js/fastclick.js'></script>
 <script src="js/jquery-1.10.1.min.js"></script>
 <script>
@@ -81,8 +82,21 @@ function openFact(n) {
 	console.log(n);
 }
 
-function openMenu() {
-swiperH.slidePrev();
+function openStuff(y) {
+	if(y==0) {
+		if(swiperH.activeIndex==0) {
+			swiperH.slideNext();
+		} else {
+			swiperH.slidePrev();
+		}
+	} else {
+		if(swiperV.activeIndex==0) {
+			swiperV.slideNext();
+		} else {
+			swiperV.slideTo(0, 300);
+		}
+	}
+	
 }
 
 </script>
@@ -108,9 +122,9 @@ swiperH.slidePrev();
             <div class="swiper-slide main">
                 <div class="swiper-container swiper-container-v">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide mainFirstSlide">Vertical Slide 1</div>
+                    	<div class="swiper-slide mainTempSlide"></div>
+                        <div class="swiper-slide mainFirstSlide"></div>
                         <div class="swiper-slide mainSecondSlide">
-                        	<div id="mainSecondButton"></div>
                         	<div id="secondSlideTop"></div>
                             <div id="secondSlideRest">
                             </div>
@@ -118,8 +132,12 @@ swiperH.slidePrev();
                     </div>
                 </div>
                 <div id="topMenu">
-                	<div id="openMenu" onclick="openMenu();"></div>
-                    <div id="openTemp"></div>
+                	<div id="openMenu" onclick="openStuff(0);">
+                    <div class="openMenu ion-ios-settings"></div>
+                    </div>
+                    <div id="openTemp" onclick="openStuff(1);">
+                    	<div class="openTemp ion-ios-alarm-outline"></div>
+                    </div>
                 </div>
             	<div id="bottomMenu">
             		<div id="bottomMenuTop">
@@ -143,13 +161,28 @@ swiperH.slidePrev();
 		initialSlide:1,
 		slidesPerView: 'auto',
 		resistance: true,
-		resistanceRatio:0
+		resistanceRatio:0,
+		onTransitionEnd: function(swiperH) {
+			if(swiperH.activeIndex==0) {
+				$('.openMenu').removeClass('ion-ios-settings').addClass('ion-ios-settings-strong');
+			} else {
+				$('.openMenu').removeClass('ion-ios-settings-strong').addClass('ion-ios-settings');
+			}
+		}
     });
     var swiperV = new Swiper('.swiper-container-v', {
         direction: 'vertical',
 		slidesPerView: "auto",
 		resistance: true,
-		resistanceRatio:0.5
+		resistanceRatio:0.5,
+		initialSlide:1,
+		onTransitionEnd: function(swiperV) {
+			if(swiperV.activeIndex==0) {
+				$('.openTemp').removeClass('ion-ios-alarm-outline').addClass('ion-ios-alarm');
+			} else {
+				$('.openTemp').removeClass('ion-ios-alarm').addClass('ion-ios-alarm-outline');
+			}
+		}
     });
     </script>
 </body>
