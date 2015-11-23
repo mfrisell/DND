@@ -226,6 +226,7 @@ height:30px;
 margin:10px 4px 0 0;
 background-color:transparent;
 float:right;
+position:relative;
 }
 
 .openTemp {
@@ -234,6 +235,25 @@ height:30px;
 color:rgba(0,0,0,.7);
 font-size:30px;
 line-height:30px;
+}
+
+.tmpBrick {
+width:15px;
+height:15px;
+border-radius:15px;
+background-color:#f47482;
+display:none;
+position:absolute;
+right:0px;
+bottom:0px;
+font-size:10px;
+color:rgba(240,240,240,1.00);
+line-height:15px;
+text-align:center;
+}
+
+.tmpBrickVisible {
+display:block;
 }
 
 #bottomMenu {
@@ -270,9 +290,37 @@ background-color:#2E4057;
 }
 
 .mainTempSlide {
-height:75px;
-padding-top:50px;
-background-color:red;
+height:50px;
+padding-top:75px;
+background-color:transparent;
+display:flex;
+flex-wrap: nowrap;
+justify-content: space-around;
+}
+
+.tmpBuffObject {
+width:auto;
+height:20px;
+padding:5px 15px 5px 15px;
+background-color:rgba(0,0,0,.05);
+border-radius:2px;
+position:relative;
+color:rgba(0,0,0,.8);
+font-weight:300;
+}
+
+.tmpBuffObjectRemove {
+width:15px;
+height:15px;
+border-radius:15px;
+background-color:#f47482;
+position:absolute;
+right:-5px;
+top:-5px;
+font-size:10px;
+color:rgba(240,240,240,1.00);
+line-height:15px;
+text-align:center;
 }
 
 .mainFirstSlide {

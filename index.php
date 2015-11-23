@@ -22,6 +22,18 @@ document.ontouchmove = function(e) {e.preventDefault()};
 
 var proficiency = 4;
 
+var bardinsp = {
+	name: "Bardic Inspiration",
+	buff: "+d8"
+	}
+	
+var insp = {
+	name: "Inspiration",
+	buff: "Advantage"
+	}
+
+var tmpBuff = [bardinsp, insp];
+
 var stats = {
 	strength:12,
 	dexterity:18,
@@ -41,26 +53,35 @@ var statsProf = {
 };
 
 $.each( stats, function( key, value ) {
-  var threeKey = key.slice(0,3);
-  var mod = Math.floor((value-10)/2);
+	var threeKey = key.slice(0,3);
+  	var mod = Math.floor((value-10)/2);
   
-  var startStr = "";
-  var statTypeProfNumber = "";
+  	var startStr = "";
+  	var statTypeProfNumber = "";
   
-  $.each(statsProf[key], function( index, val ) {
-	  if(val[0]==1) {
-		  prof = mod + proficiency;
-		  startStr += "<div class='statProf'><div class='statProfHolder'>"+ prof + "</div> " + val[1] + " &#149;</div>";
-		  statTypeProfNumber +=" &#149";
-	  } else {
-		  startStr += "<div class='statProf'><div class='statProfHolder'>"+ mod + "</div> " + val[1] + "</div>";
-	  }
-	  
+  	$.each(statsProf[key], function( index, val ) {
+		if(val[0]==1) {
+			prof = mod + proficiency;
+		  	startStr += "<div class='statProf'><div class='statProfHolder'>"+ prof + "</div> " + val[1] + " &#149;</div>";
+		  	statTypeProfNumber +=" &#149";
+	  	} else {
+		  	startStr += "<div class='statProf'><div class='statProfHolder'>"+ mod + "</div> " + val[1] + "</div>";
+		}
   });
   
   var insert = '<div class="stat">'+mod+'<div class="statSmallOuter '+threeKey+'"><div class="statSmall">'+value+'</div></div><div class="statType">'+key+'<div class="statTypeProf">'+statTypeProfNumber+'</div></div></div><div class="stats">';
   
-  $(".menuObject" + "." + key.slice(0,3)).html(insert + startStr + "</div></div>");
+$(".menuObject" + "." + key.slice(0,3)).html(insert + startStr + "</div></div>");
+  
+  if(tmpBuff.length>0) {
+	  $('.tmpBrick').html(tmpBuff.length);
+	  $('.tmpBrick').addClass('tmpBrickVisible');
+	  var writeThisToTemp = "";
+	  $.each(tmpBuff, function(ind, objects) {
+		  writeThisToTemp += "<div class='tmpBuffObject'><div class='tmpBuffObjectRemove'>X</div>"+objects.name+"</div>";
+	  });
+	  $('.mainTempSlide').html(writeThisToTemp);
+	}
   
 });
 
@@ -122,7 +143,8 @@ function openStuff(y) {
             <div class="swiper-slide main">
                 <div class="swiper-container swiper-container-v">
                     <div class="swiper-wrapper">
-                    	<div class="swiper-slide mainTempSlide"></div>
+                    	<div class="swiper-slide mainTempSlide">
+                        </div>
                         <div class="swiper-slide mainFirstSlide"></div>
                         <div class="swiper-slide mainSecondSlide">
                         	<div id="secondSlideTop"></div>
@@ -137,6 +159,7 @@ function openStuff(y) {
                     </div>
                     <div id="openTemp" onclick="openStuff(1);">
                     	<div class="openTemp ion-ios-alarm-outline"></div>
+                        <div class="tmpBrick"></div>
                     </div>
                 </div>
             	<div id="bottomMenu">
