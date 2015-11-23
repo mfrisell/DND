@@ -316,6 +316,72 @@ border-right: 100vw solid transparent;
 -webkit-filter: blur(5px);
 }
 
+#bottomMenuHealth {
+width:120px;
+height:120px;
+background-color:transparent;
+position:absolute;
+left:20px;
+bottom:20px;
+z-index:99999;
+border-radius:120px;
+-webkit-box-shadow:0 0 30px rgba(0,0,0,.08);
+overflow:hidden;
+}
+
+#bottomMenuHealthNumb {
+width:120px;
+height:0%;
+font-size:48px;
+position:absolute;
+left:0px;
+bottom:0px;
+overflow:hidden;
+}
+
+#bottomMenuHealthNumbHolder {
+width:120px;
+font-weight:700;
+color:#fff;
+text-align:center;
+position:absolute;
+left:0px;
+bottom:30px;
+}
+
+#bottomMenuHealthNumbBack {
+width:120px;
+height:120px;
+line-height:120px;
+text-align:center;
+font-size:48px;
+position:absolute;
+left:0px;
+bottom:0px;
+font-weight:700;
+color:#f47482;
+}
+
+#bottomMenuHealthRemaining {
+width:120px;
+height:0%;
+position:absolute;
+left:0px;
+bottom:0px;
+background-color:#f47482;
+}
+
+#bottommenuHealtTmp {
+width:120px;
+height:0%;
+position:absolute;
+left:0px;
+bottom:0px;
+/*background-color:#ee5462;*/
+background-color:#f47482;
+-webkit-box-shadow:inset 0px 0px 20px rgba(0,0,0,.2);
+}
+
 #bottomMenuBottom {
 width:100%;
 height:50px;
@@ -365,7 +431,7 @@ box-sizing:border-box;
 }
 
 .mainSecondSlide {
-height:300px;
+height:400px;
 position:relative;
 }
 
@@ -379,7 +445,7 @@ border-right: 100vw solid transparent;
 
 #secondSlideRest {
 width:100%;
-height:285px;
+height:100%;
 background-color:#f9f9f9;
 }
 

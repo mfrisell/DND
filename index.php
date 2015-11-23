@@ -20,11 +20,6 @@ window.addEventListener('load', function() {
 function start() {
 document.ontouchmove = function(e) {e.preventDefault()};
 
-var proficiency = 0;
-var lvl = 10;
-
-proficiency = Math.floor((lvl-1)/4)+2;
-
 var bardinsp = {
 	name: "Bardic Inspiration",
 	buff: "+d8"
@@ -54,6 +49,25 @@ var statsProf = {
 	wisdom: [[0, "Saving Throws"], [0, "Animal Handling"], [0, "Insight"], [0, "Medicine"], [0, "Perception"], [1, "Survival"]],
 	charisma: [[0, "Saving Throws"], [0, "Deception"], [0, "Intimidation"], [0, "Performance"], [0, "Persuasion"]]
 };
+
+var lvl = 10;
+var proficiency = Math.floor((lvl-1)/4)+2;
+
+var conMod = Math.floor((stats.constitution-10)/2);
+var totHealth = 10+conMod+2*(6+conMod)+(lvl-3)*(5+conMod);
+var tmpHealth = 6;
+var health = 26;
+var healthProcent = (health/totHealth)*100;
+var tmpHealthProcent = (tmpHealth/totHealth)*100;
+
+$("#bottomMenuHealthNumbHolder").html(health);
+$("#bottomMenuHealthNumbBack").html(health);
+
+$("#bottomMenuHealthRemaining").css("height", healthProcent + "%");
+$("#bottommenuHealtTmp").css("height", tmpHealthProcent + "%");
+$("#bottommenuHealtTmp").css("bottom", healthProcent + "%");
+var tmpAndHealth = healthProcent+tmpHealthProcent;
+$("#bottomMenuHealthNumb").css("height", tmpAndHealth + "%");
 
 $.each( stats, function( key, value ) {
 	var threeKey = key.slice(0,3);
@@ -167,6 +181,14 @@ function openStuff(y) {
                     </div>
                 </div>
             	<div id="bottomMenu">
+                	<div id="bottomMenuHealth">
+                    	<div id="bottomMenuHealthNumbBack"></div>
+                    	<div id="bottomMenuHealthRemaining"></div>
+                        <div id="bottommenuHealtTmp"></div>
+                        <div id="bottomMenuHealthNumb">
+                        	<div id="bottomMenuHealthNumbHolder"></div>
+                        </div>
+                    </div>
                 	<div id="bottomMenuTopShadow">
                 		<div id="bottomMenuTopTriangleShadow"></div>
                 	</div>
