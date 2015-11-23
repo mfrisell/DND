@@ -20,6 +20,9 @@ window.addEventListener('load', function() {
 function start() {
 document.ontouchmove = function(e) {e.preventDefault()};
 
+var name = "Knukk Lee";
+$("#name").html(name);
+
 var bardinsp = {
 	name: "Bardic Inspiration",
 	buff: "+d8"
@@ -55,7 +58,7 @@ var proficiency = Math.floor((lvl-1)/4)+2;
 
 var conMod = Math.floor((stats.constitution-10)/2);
 var totHealth = 10+conMod+2*(6+conMod)+(lvl-3)*(5+conMod);
-var tmpHealth = 6;
+var tmpHealth = 13;
 var health = 27;
 var healthProcent = (health/totHealth)*100;
 var tmpHealthProcent = (tmpHealth/totHealth)*100;
@@ -69,9 +72,12 @@ $("#bottommenuHealtTmp").css("bottom", healthProcent + "%");
 var tmpAndHealth = healthProcent+tmpHealthProcent;
 $("#bottomMenuHealthNumb").css("height", tmpAndHealth + "%");
 
+var maxKi = lvl-3;
+var remainingKi = maxKi;
+
 var tmpSpots = "";
-for(iVal=0;iVal<tmpHealth;iVal++) {
-	tmpSpots += "<div class='tmpHealthDot' style='transform: rotate("+iVal+"0deg);'>&#149;</div>";
+for(iVal=0;iVal<remainingKi;iVal++) {
+	tmpSpots += "<div class='tmpHealthDot' style='transform: rotate("+2*iVal+"0deg);'>&#149;</div>";
 }
 
 $("#bottomMenuTmpHealthHolder").html(tmpSpots);
@@ -181,7 +187,7 @@ function openStuff(y) {
                 	<div id="openMenu" onclick="openStuff(0);">
                     <div class="openMenu ion-ios-settings"></div>
                     </div>
-                    <div id="name">Knukk Lee</div>
+                    <div id="name"></div>
                     <div id="openTemp" onclick="openStuff(1);">
                     	<div class="openTemp ion-ios-alarm-outline"></div>
                         <div class="tmpBrick"></div>
