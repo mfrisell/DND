@@ -48,10 +48,10 @@ $.each( stats, function( key, value ) {
   $.each(statsProf[key], function( index, val ) {
 	  if(val[0]==1) {
 		  prof = mod + proficiency;
-		  startStr += "<div class='statProf'>" + prof + " " + val[1] + " &#149;</div>";
+		  startStr += "<div class='statProf'><div class='statProfHolder'>"+ prof + "</div> " + val[1] + " &#149;</div>";
 		  statTypeProfNumber +=" &#149";
 	  } else {
-		  startStr += "<div class='statProf'>" + mod + " " + val[1] + "</div>";
+		  startStr += "<div class='statProf'><div class='statProfHolder'>"+ mod + "</div> " + val[1] + "</div>";
 	  }
 	  
   });

@@ -137,6 +137,13 @@ line-height:12px;
 color:rgba(255,255,255,.5);
 }
 
+.statProfHolder {
+width:auto;
+height:auto;
+display:inline-block;
+background-color:red;
+}
+
 .stats {
 height:0px;
 width:100%;
