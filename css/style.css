@@ -416,7 +416,7 @@ z-index:99;
 }
 
 .mainTempSlide {
-height:50px;
+height:0px;
 padding-top:75px;
 background-color:transparent;
 display:flex;
@@ -453,6 +453,58 @@ text-align:center;
 padding-top:50px;
 height:-webkit-calc(100% - 100px);
 box-sizing:border-box;
+}
+
+.mainFirstSlideStandard {
+width:-webkit-calc(100% - 20px);
+height:100px;
+margin:10px 0 0 10px;
+background-color:rgba(255,255,255,1.00);
+border-radius:2px;
+-webkit-box-shadow:0 0px 10px rgba(0,0,0,.05);
+display:flex;
+justify-content:space-around;
+flex-wrap: nowrap;
+}
+
+#image {
+width:80px;
+height:80px;
+float:left;
+margin:10px;
+background-image:url(../knukk.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+border-radius:100px;
+}
+
+.attribute {
+width:auto;
+min-width:60px;
+height:auto;
+float:left;
+background-color:transparent;
+margin:30px 20px 0 0;
+}
+
+.attributeHeader {
+width:100%;
+height:auto;
+background-color:transparent;
+font-weight:300;
+font-size:11px;
+text-transform:uppercase;
+text-align:right;
+}
+
+.attributeNumber {
+width:100%;
+height:auto;
+background-color:transparent;
+font-weight:700;
+font-size:24px;
+text-transform:uppercase;
+text-align:right;
 }
 
 .mainSecondSlide {

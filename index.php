@@ -20,9 +20,6 @@ window.addEventListener('load', function() {
 function start() {
 document.ontouchmove = function(e) {e.preventDefault()};
 
-var name = "Knukk Lee";
-$("#name").html(name);
-
 var bardinsp = {
 	name: "Bardic Inspiration",
 	buff: "+d8"
@@ -56,21 +53,25 @@ var statsProf = {
 var lvl = 10;
 var proficiency = Math.floor((lvl-1)/4)+2;
 
+var name = "Knukk Lee";
+$("#name").html(name);
+
 var conMod = Math.floor((stats.constitution-10)/2);
 var totHealth = 10+conMod+2*(6+conMod)+(lvl-3)*(5+conMod);
 var tmpHealth = 13;
 var health = 27;
 var healthProcent = (health/totHealth)*100;
 var tmpHealthProcent = (tmpHealth/totHealth)*100;
+var tmpAndHealth = health+tmpHealth;
 
-$("#bottomMenuHealthNumbHolder").html(health);
-$("#bottomMenuHealthNumbBack").html(health);
+$("#bottomMenuHealthNumbHolder").html(tmpAndHealth);
+$("#bottomMenuHealthNumbBack").html(tmpAndHealth);
 
 $("#bottomMenuHealthRemaining").css("height", healthProcent + "%");
 $("#bottommenuHealtTmp").css("height", tmpHealthProcent + "%");
 $("#bottommenuHealtTmp").css("bottom", healthProcent + "%");
-var tmpAndHealth = healthProcent+tmpHealthProcent;
-$("#bottomMenuHealthNumb").css("height", tmpAndHealth + "%");
+var tmpAndHealthProcent = healthProcent+tmpHealthProcent;
+$("#bottomMenuHealthNumb").css("height", tmpAndHealthProcent + "%");
 
 var maxKi = lvl-3;
 var remainingKi = maxKi;
@@ -81,6 +82,12 @@ for(iVal=0;iVal<remainingKi;iVal++) {
 }
 
 $("#bottomMenuTmpHealthHolder").html(tmpSpots);
+
+var ac = 10 + (Math.floor((stats.wisdom-10)/2)) + (Math.floor((stats.dexterity-10)/2));
+
+$(".ac").html(ac);
+
+$(".init").html(Math.floor((stats.dexterity-10)/2));
 
 $.each( stats, function( key, value ) {
 	var threeKey = key.slice(0,3);
@@ -175,7 +182,23 @@ function openStuff(y) {
                     <div class="swiper-wrapper">
                     	<div class="swiper-slide mainTempSlide">
                         </div>
-                        <div class="swiper-slide mainFirstSlide"></div>
+                        <div class="swiper-slide mainFirstSlide">
+                        	<div class="mainFirstSlideStandard">
+                            	<div id="image"></div>
+                                <div class="attribute">
+                                	<div class="attributeHeader">Armor Class</div>
+                                    <div class="attributeNumber ac"></div>
+                                </div>
+                                <div class="attribute">
+                                	<div class="attributeHeader">Initiative</div>
+                                    <div class="attributeNumber init"></div>
+                                </div>
+                                <div class="attribute">
+                                	<div class="attributeHeader">Speed</div>
+                                    <div class="attributeNumber speed">40</div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="swiper-slide mainSecondSlide">
                         	<div id="secondSlideTop"></div>
                             <div id="secondSlideRest">
