@@ -157,6 +157,16 @@ function openStuff(y) {
 	
 }
 
+function changeButton(changeButt) {
+	if($(changeButt).hasClass("ion-ios-circle-filled")) {
+		$(changeButt).removeClass("ion-ios-circle-filled").addClass("ion-ios-circle-outline");
+	} else {
+		$(changeButt).removeClass("ion-ios-circle-outline").addClass("ion-ios-circle-filled");
+	}
+    
+
+}
+
 </script>
 </head>
 <body onLoad="start();">
@@ -198,10 +208,33 @@ function openStuff(y) {
                                     <div class="attributeNumber speed">40</div>
                                 </div>
                             </div>
+                            <div class="mainFirstSlideStandard">
+                            </div>
+                            <div class="mainFirstSlideStandard">
+                            </div>
+                            <div class="mainFirstSlideStandard">
+                            </div>
                         </div>
                         <div class="swiper-slide mainSecondSlide">
                         	<div id="secondSlideTop"></div>
                             <div id="secondSlideRest">
+                            	<div id="fighterStuff">
+                                	<div id="superiorityDice">
+                                    	<div class="headLine">Superiority Dice</div>
+                                        <div class="button ion-ios-circle-filled" onclick="changeButton(this);"></div>
+                                        <div class="button ion-ios-circle-filled" onclick="changeButton(this);"></div>
+                                        <div class="button ion-ios-circle-filled" onclick="changeButton(this);"></div>
+                                        <div class="button ion-ios-circle-filled" onclick="changeButton(this);"></div>
+                                    </div>
+                                    <div id="actionSurge">
+                                    	<div class="headLine">AS</div>
+                                        <div class="button ion-ios-circle-filled" onclick="changeButton(this);"></div>
+                                    </div>
+                                    <div id="secondWind">
+                                    	<div class="headLine">SW</div>
+                                        <div class="button ion-ios-circle-filled" onclick="changeButton(this);"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

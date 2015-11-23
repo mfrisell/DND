@@ -417,7 +417,7 @@ z-index:99;
 
 .mainTempSlide {
 height:0px;
-padding-top:75px;
+padding-top:85px;
 background-color:transparent;
 display:flex;
 flex-wrap: nowrap;
@@ -457,8 +457,10 @@ box-sizing:border-box;
 
 .mainFirstSlideStandard {
 width:-webkit-calc(100% - 20px);
+max-width:400px;
+float:left;
 height:100px;
-margin:10px 0 0 10px;
+margin:15px 0 0 10px;
 background-color:rgba(255,255,255,1.00);
 border-radius:2px;
 -webkit-box-shadow:0 0px 10px rgba(0,0,0,.05);
@@ -524,8 +526,56 @@ border-right: 100vw solid transparent;
 width:100%;
 height:100%;
 background-color:#f9f9f9;
+overflow:auto;
 }
 
+#fighterStuff {
+width:100%;
+height:auto;
+background-color:transparent;
+margin-top:30px;
+display:flex;
+justify-content:space-around;
+}
+
+.headLine {
+font-weight:700;
+font-size:11px;
+width:100%;
+height:auto;
+background-color:transparent;
+text-transform:uppercase;
+text-align:center;
+}
+
+.button {
+width:40px;
+height:40px;
+background-color:transparent;
+margin:5px 0 0 0px;
+float:right;
+font-size:40px;
+line-height:40px;
+text-align:center;
+}
+
+#superiorityDice {
+width:auto;
+height:auto;
+background-color:transparent;
+}
+
+#secondWind {
+width:auto;
+height:auto;
+background-color:transparent;
+}
+
+#actionSurge {
+width:auto;
+height:auto;
+background-color:transparent;
+}
 
 /* SWIPER STUFF */
 
