@@ -1,11 +1,12 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="viewport" content="width=320, initial-scale=1, user-scalable=no, minimal-ui">
 <title>Knukk Lee</title>
+<link rel="stylesheet" href="dist/css/swiper.css">
 <link rel="stylesheet" href="css/style.css"/>
 <script type='application/javascript' src='js/fastclick.js'></script>
 <script src="js/jquery-1.10.1.min.js"></script>
@@ -58,14 +59,13 @@ $.each( stats, function( key, value ) {
   
   var insert = '<div class="stat">'+mod+'<div class="statSmallOuter '+threeKey+'"><div class="statSmall">'+value+'</div></div><div class="statType">'+key+'<div class="statTypeProf">'+statTypeProfNumber+'</div></div></div><div class="stats">';
   
-  $(".menuObject" + "." + key.slice(0,3)).append(insert + startStr + "</div></div>");
+  $(".menuObject" + "." + key.slice(0,3)).html(insert + startStr + "</div></div>");
   
 });
 
 }
 
 function openFact(n) {
-	
 	$('.menuObject').each(function(i, obj) {
     	$('.menuObject').removeClass('open');
 		$('.menuObject').children('.stats').removeClass('statsOpen');
@@ -81,67 +81,76 @@ function openFact(n) {
 	console.log(n);
 }
 
+function openMenu() {
+swiperH.slidePrev();
+}
+
 </script>
 </head>
-
 <body onLoad="start();">
-<div class="swiper-container">
-	<div class="swiper-wrapper">
-    	<div class="swiper-slide menu">
-        	<div class="menuObject str" onClick="openFact(this);">
+    <!-- Swiper -->
+    <div class="swiper-container swiper-container-h">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide menu">
+            	<div class="menuObject str" onClick="openFact(this);">
+            	</div>
+            	<div class="menuObject dex" onClick="openFact(this);">
+           		</div>
+            	<div class="menuObject con" onClick="openFact(this);">
+            	</div>
+            	<div class="menuObject int" onClick="openFact(this);">
+            	</div>
+            	<div class="menuObject wis" onClick="openFact(this);">
+            	</div>
+            	<div class="menuObject cha" onClick="openFact(this);">
+            	</div>
             </div>
-            <div class="menuObject dex" onClick="openFact(this);">
-            </div>
-            <div class="menuObject con" onClick="openFact(this);">
-            </div>
-            <div class="menuObject int" onClick="openFact(this);">
-            </div>
-            <div class="menuObject wis" onClick="openFact(this);">
-            </div>
-            <div class="menuObject cha" onClick="openFact(this);">
-            </div>
-    	</div>
-    	<div class="swiper-slide main">
-        	<!--<div class="menuButton">
-            	<div class="menuButtonCutTop str"></div>
-            	<div class="menuButtonCutBottom str"></div>
-            	<div class="menuButtonCutMiddle str "></div>
-            </div>-->
-            <div id="facts">
-            	<div id="image">
-                	<div class="imageCircleLeft">
-                    	<div class="innerCircle"></div>
-                    </div>
-                    <div class="imageCircleRight">
-                    	<div class="innerCircle"></div>
+            <div class="swiper-slide main">
+                <div class="swiper-container swiper-container-v">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide mainFirstSlide">Vertical Slide 1</div>
+                        <div class="swiper-slide mainSecondSlide">
+                        	<div id="mainSecondButton"></div>
+                        	<div id="secondSlideTop"></div>
+                            <div id="secondSlideRest">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="imageCircleFarLeft"></div>
-                <div class="imageCircleFarRight"></div>
+                <div id="topMenu">
+                	<div id="openMenu" onclick="openMenu();"></div>
+                    <div id="openTemp"></div>
+                </div>
+            	<div id="bottomMenu">
+            		<div id="bottomMenuTop">
+                		<div id="bottomMenuTopTriangle">
+                    </div>
+                	</div>
+                <div id="bottomMenuBottom"></div>
             </div>
-    	</div>
-  	</div>
-</div>
+                
+            </div>
+        </div>
+        <!-- Add Pagination -->
+    </div>
 
-<script src="js/idangerous.swiper.js"></script>
-<script>
-var mySwiper = new Swiper('.swiper-container',{
-	slidesPerView: 'auto',
- 	resistance: '100%',
- 	initialSlide: 0
-})
+    <!-- Swiper JS -->
+    <script src="dist/js/swiper.min.js"></script>
 
-$( document ).ready(function() {
-	var w = $('body').innerWidth();
-	$('.main').css('width', w);
-});
-
-$(window).on('resize', function(){
-	var wid = $('body').innerWidth();
-	$('.main').css('width', wid);
-});
-</script>
-
-
+    <!-- Initialize Swiper -->
+    <script>
+    var swiperH = new Swiper('.swiper-container-h', {
+		initialSlide:1,
+		slidesPerView: 'auto',
+		resistance: true,
+		resistanceRatio:0
+    });
+    var swiperV = new Swiper('.swiper-container-v', {
+        direction: 'vertical',
+		slidesPerView: "auto",
+		resistance: true,
+		resistanceRatio:0.5
+    });
+    </script>
 </body>
 </html>
