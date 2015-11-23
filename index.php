@@ -56,7 +56,7 @@ var proficiency = Math.floor((lvl-1)/4)+2;
 var conMod = Math.floor((stats.constitution-10)/2);
 var totHealth = 10+conMod+2*(6+conMod)+(lvl-3)*(5+conMod);
 var tmpHealth = 6;
-var health = 26;
+var health = 27;
 var healthProcent = (health/totHealth)*100;
 var tmpHealthProcent = (tmpHealth/totHealth)*100;
 
@@ -68,6 +68,13 @@ $("#bottommenuHealtTmp").css("height", tmpHealthProcent + "%");
 $("#bottommenuHealtTmp").css("bottom", healthProcent + "%");
 var tmpAndHealth = healthProcent+tmpHealthProcent;
 $("#bottomMenuHealthNumb").css("height", tmpAndHealth + "%");
+
+var tmpSpots = "";
+for(iVal=0;iVal<tmpHealth;iVal++) {
+	tmpSpots += "<div class='tmpHealthDot' style='transform: rotate("+iVal+"0deg);'>&#149;</div>";
+}
+
+$("#bottomMenuTmpHealthHolder").html(tmpSpots);
 
 $.each( stats, function( key, value ) {
 	var threeKey = key.slice(0,3);
@@ -181,6 +188,8 @@ function openStuff(y) {
                     </div>
                 </div>
             	<div id="bottomMenu">
+                	<div id="bottomMenuTmpHealthHolder">
+                    </div>
                 	<div id="bottomMenuHealth">
                     	<div id="bottomMenuHealthNumbBack"></div>
                     	<div id="bottomMenuHealthRemaining"></div>
