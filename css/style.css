@@ -294,14 +294,34 @@ pointer-events:none;
 #bottomMenuTopTriangle {
 width: 0;
 height: 0;
-border-bottom: 50px solid #2E4057;
+border-bottom: 50px solid #fff;
 border-right: 100vw solid transparent;
+}
+
+#bottomMenuTopShadow {
+width:100%;
+height:50px;
+background-color:rgba(0,0,0,0);
+position:absolute;
+left:0px;
+top:-52px;
+pointer-events:none;
+}
+
+#bottomMenuTopTriangleShadow {
+width: 0;
+height: 0;
+border-bottom: 50px solid rgba(0,0,0,.05);
+border-right: 100vw solid transparent;
+-webkit-filter: blur(5px);
 }
 
 #bottomMenuBottom {
 width:100%;
 height:50px;
-background-color:#2E4057;
+background-color:#fff;
+position:relative;
+z-index:99;
 }
 
 .mainTempSlide {
@@ -353,14 +373,14 @@ position:relative;
 margin-top:-10px;
 width: 0;
 height: 0;
-border-bottom: 25px solid #375d7d;
+border-bottom: 25px solid #f9f9f9;
 border-right: 100vw solid transparent;
 }
 
 #secondSlideRest {
 width:100%;
 height:285px;
-background-color:#375d7d;
+background-color:#f9f9f9;
 }
 
 

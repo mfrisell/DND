@@ -167,12 +167,15 @@ function openStuff(y) {
                     </div>
                 </div>
             	<div id="bottomMenu">
-            		<div id="bottomMenuTop">
-                		<div id="bottomMenuTopTriangle">
-                    </div>
+                	<div id="bottomMenuTopShadow">
+                		<div id="bottomMenuTopTriangleShadow"></div>
                 	</div>
-                <div id="bottomMenuBottom"></div>
-            </div>
+            		<div id="bottomMenuTop">
+                		<div id="bottomMenuTopTriangle"></div>
+                	</div>
+                    
+                	<div id="bottomMenuBottom"></div>
+            	</div>
                 
             </div>
         </div>
