@@ -20,7 +20,10 @@ window.addEventListener('load', function() {
 function start() {
 document.ontouchmove = function(e) {e.preventDefault()};
 
-var proficiency = 4;
+var proficiency = 0;
+var lvl = 10;
+
+proficiency = Math.floor((lvl-1)/4)+2;
 
 var bardinsp = {
 	name: "Bardic Inspiration",
@@ -157,6 +160,7 @@ function openStuff(y) {
                 	<div id="openMenu" onclick="openStuff(0);">
                     <div class="openMenu ion-ios-settings"></div>
                     </div>
+                    <div id="name">Knukk Lee</div>
                     <div id="openTemp" onclick="openStuff(1);">
                     	<div class="openTemp ion-ios-alarm-outline"></div>
                         <div class="tmpBrick"></div>
