@@ -7,10 +7,13 @@
 <meta name="viewport" content="width=320, initial-scale=1, user-scalable=no, minimal-ui">
 <title>Knukk Lee</title>
 <link rel="stylesheet" href="dist/css/swiper.css">
-<link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="ionicons/css/ionicons.css">
+<link rel="stylesheet" href="css/jquery-ui.css">
+<link rel="stylesheet" href="css/style.css"/>
 <script type='application/javascript' src='js/fastclick.js'></script>
 <script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch.js"></script>
 <script>
 window.addEventListener('load', function() {
     FastClick.attach(document.body);
@@ -130,7 +133,6 @@ function openFact(n) {
 		$('.menuObject').children('.stats').removeClass('statsOpen');
 		$('.menuObject').children('.stat').removeClass('statMin')
 		$('.menuObject').children('.stat').children('.statType').removeClass('statTypeMax')
-		
 	});
 
 	$(n).addClass("open");
@@ -163,11 +165,64 @@ function changeButton(changeButt) {
 	} else {
 		$(changeButt).removeClass("ion-ios-circle-outline").addClass("ion-ios-circle-filled");
 	}
-    
-
 }
 
 </script>
+<script>
+
+function resetDragable() {
+	$("#draggable").css({
+		top: "10px",
+        left: "10px"
+    });
+}
+	
+$(function() {
+	$( "#draggable" ).draggable({
+	cursorAt: {top: 50, left: 50},
+	refreshPositions: true
+	});
+    $( "#droppable" ).droppable({
+		drop: function( event, ui ) {
+        	alert("1");
+			resetDragable();
+		},
+		tolerance: "touch",
+	  	hoverClass: "selectorHover",
+	  	activeClass: "selectorActivated",
+	  	deactivate: function( event, ui ) {
+			resetDragable();
+		  	$(".main").removeClass("swiper-no-swiping");
+		}
+    });
+	
+	$( "#droppable2" ).droppable({
+      drop: function( event, ui ) {
+        alert("2");
+      },
+	  tolerance: "touch",
+	  hoverClass: "selectorHover",
+	  activeClass: "selectorActivated2"
+    });
+	
+	$( "#droppable3" ).droppable({
+      drop: function( event, ui ) {
+        alert("3");
+		},
+	  tolerance: "touch",
+	  hoverClass: "selectorHover",
+	  activeClass: "selectorActivated3"
+    });
+	
+  });
+  
+  function turnOfScroll() {
+	  //alert("HEJ");
+  $(".main").addClass("swiper-no-swiping");
+  }
+  </script>
+<style>
+</style>
 </head>
 <body onLoad="start();">
     <!-- Swiper -->
@@ -208,12 +263,12 @@ function changeButton(changeButt) {
                                     <div class="attributeNumber speed">40</div>
                                 </div>
                             </div>
-                            <div class="mainFirstSlideStandard">
+                            <!--<div class="mainFirstSlideStandard">
                             </div>
                             <div class="mainFirstSlideStandard">
                             </div>
                             <div class="mainFirstSlideStandard">
-                            </div>
+                            </div>-->   
                         </div>
                         <div class="swiper-slide mainSecondSlide">
                         	<div id="secondSlideTop"></div>
@@ -252,6 +307,16 @@ function changeButton(changeButt) {
             	<div id="bottomMenu">
                 	<div id="bottomMenuTmpHealthHolder">
                     </div>
+                    <div id="buttonDragonDropHolder">
+                        	<div id="draggable" class="ui-widget-content" onMouseDown="turnOfScroll();">
+							</div>
+							<div id="droppable" class="ui-widget-header">
+							</div>
+                            <div id="droppable2" class="ui-widget-header">
+							</div>
+                            <div id="droppable3" class="ui-widget-header">
+							</div>
+                    </div>
                 	<div id="bottomMenuHealth">
                     	<div id="bottomMenuHealthNumbBack"></div>
                     	<div id="bottomMenuHealthRemaining"></div>
@@ -285,6 +350,8 @@ function changeButton(changeButt) {
 		slidesPerView: 'auto',
 		resistance: true,
 		resistanceRatio:0,
+		noSwiping: true,
+		noSwipingClass: 'swiper-no-swiping',
 		onTransitionEnd: function(swiperH) {
 			if(swiperH.activeIndex==0) {
 				$('.openMenu').removeClass('ion-ios-settings').addClass('ion-ios-settings-strong');
@@ -299,6 +366,8 @@ function changeButton(changeButt) {
 		resistance: true,
 		resistanceRatio:0.5,
 		initialSlide:1,
+		noSwiping: true,
+        noSwipingClass: 'swiper-no-swiping',
 		onTransitionEnd: function(swiperV) {
 			if(swiperV.activeIndex==0) {
 				$('.openTemp').removeClass('ion-ios-alarm-outline').addClass('ion-ios-alarm');
