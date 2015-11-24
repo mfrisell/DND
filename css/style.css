@@ -606,13 +606,14 @@ width: 40px;
 height: 40px; 
 position:absolute;
 right:50px;
-top:50px;
+top:0px;
 opacity:1;
 pointer-events:none;
 border-radius:50%;
 border:0px;
 -webkit-transform:scale(0);
 transition:.4s cubic-bezier(.27,1.65,.17,.78);
+transition-delay: 0s;
 opacity:0;
 }
 
@@ -620,14 +621,15 @@ opacity:0;
 width: 40px; 
 height: 40px; 
 position:absolute;
-right:50px;
-top:50px;
+right:10px;
+top:10px;
 opacity:1;
 pointer-events:none;
 border-radius:50%;
 border:0px;
 -webkit-transform:scale(0);
 transition:.4s cubic-bezier(.27,1.65,.17,.78);
+transition-delay: .1s;
 opacity:0;
 }
 
@@ -635,7 +637,7 @@ opacity:0;
 width: 40px; 
 height: 40px; 
 position:absolute;
-right:50px;
+right:0px;
 top:50px;
 opacity:1;
 pointer-events:none;
@@ -643,21 +645,23 @@ border-radius:50%;
 border:0px;
 -webkit-transform:scale(0);
 transition:.4s cubic-bezier(.27,1.65,.17,.78);
+transition-delay: .2s;
 opacity:0;
 }
 
 .selectorActivated {
-	background-color:blue;
+	background-color:#f47482;
 	opacity:1;
 	-webkit-transform:scale(1)!important;
 	position:absolute;
 	left:40px!important;
 	top:-80px!important;
 	opacity:1!important;
+	
 }
 
 .selectorActivated2 {
-	background-color:blue;
+	background-color:#f47482;
 	opacity:1;
 	-webkit-transform:scale(1)!important;
 	position:absolute;
@@ -667,7 +671,7 @@ opacity:0;
 }
 
 .selectorActivated3 {
-	background-color:blue;
+	background-color:#f47482;
 	opacity:1;
 	-webkit-transform:scale(1)!important;
 	position:absolute;
@@ -677,8 +681,11 @@ opacity:0;
 }
 
 .selectorHover {
-	background-color:red;
-	-webkit-transform:scale(1.2)!important;
+	background-color:#f47482;
+	-webkit-transform:scale(1.4)!important;
+	transition-delay: 0s!important;
+	opacity:1;
+	-webkit-box-shadow:inset 0px 0px 20px rgba(0,0,0,.2);
 }
 
 /* SWIPER STUFF */

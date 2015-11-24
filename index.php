@@ -62,7 +62,7 @@ $("#name").html(name);
 var conMod = Math.floor((stats.constitution-10)/2);
 var totHealth = 10+conMod+2*(6+conMod)+(lvl-3)*(5+conMod);
 var tmpHealth = 13;
-var health = 27;
+var health = 57;
 var healthProcent = (health/totHealth)*100;
 var tmpHealthProcent = (tmpHealth/totHealth)*100;
 var tmpAndHealth = health+tmpHealth;
@@ -179,12 +179,13 @@ function resetDragable() {
 	
 $(function() {
 	$( "#draggable" ).draggable({
-	cursorAt: {top: 50, left: 50},
+	cursorAt: {bottom: 50, left: 50},
 	refreshPositions: true
 	});
+	
     $( "#droppable" ).droppable({
 		drop: function( event, ui ) {
-        	alert("1");
+        	//alert("1");
 			resetDragable();
 		},
 		tolerance: "touch",
@@ -198,7 +199,7 @@ $(function() {
 	
 	$( "#droppable2" ).droppable({
       drop: function( event, ui ) {
-        alert("2");
+        //alert("2");
       },
 	  tolerance: "touch",
 	  hoverClass: "selectorHover",
@@ -207,7 +208,7 @@ $(function() {
 	
 	$( "#droppable3" ).droppable({
       drop: function( event, ui ) {
-        alert("3");
+        //alert("3");
 		},
 	  tolerance: "touch",
 	  hoverClass: "selectorHover",
@@ -219,6 +220,16 @@ $(function() {
   function turnOfScroll() {
 	  //alert("HEJ");
   $(".main").addClass("swiper-no-swiping");
+  $("#droppable").addClass("selectorActivated");
+  $("#droppable2").addClass("selectorActivated2");
+  $("#droppable3").addClass("selectorActivated3");
+  }
+  
+function turnOnScroll() {
+	$(".main").removeClass("swiper-no-swiping");
+  	$("#droppable").removeClass("selectorActivated");
+  	$("#droppable2").removeClass("selectorActivated2");
+  	$("#droppable3").removeClass("selectorActivated3");
   }
   </script>
 <style>
@@ -308,7 +319,7 @@ $(function() {
                 	<div id="bottomMenuTmpHealthHolder">
                     </div>
                     <div id="buttonDragonDropHolder">
-                        	<div id="draggable" class="ui-widget-content" onMouseDown="turnOfScroll();">
+                        	<div id="draggable" class="ui-widget-content" onMouseDown="turnOfScroll();" onMouseUp="turnOnScroll();">
 							</div>
 							<div id="droppable" class="ui-widget-header">
 							</div>
